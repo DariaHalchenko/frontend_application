@@ -129,3 +129,32 @@ function pulseeriIkon(sihtId) {
   plokk.classList.toggle("pulseeriv");
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Кнопка
+  const contactBtn = document.getElementById('contact-send');
+  if (contactBtn) {
+    contactBtn.addEventListener('click', () => {
+      gtag('event', 'contact_click', {
+        page: 'kontakt',
+        method: 'button'
+      });
+    });
+  }
+
+  // Форма
+  const contactForm = document.querySelector('#contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      gtag('event', 'contact_submit', { method: 'web_form' });
+    });
+  }
+
+  // Галерея
+  document.querySelectorAll('.gallery-item').forEach((item, i) => {
+    item.addEventListener('click', () => {
+      gtag('event', 'gallery_click', { index: i });
+    });
+  });
+});
+
