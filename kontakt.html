@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Helk Kontakt</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body class="leht leht--kontakt">
+    <header class="alam-kangelane">
+      <nav class="navi">
+        <a class="navi-logo" href="index.html">Helk</a>
+        <div class="navi-lingid">
+          <a class="navi-nupp" href="galerii.html">Galerii</a>
+          <a class="navi-nupp" href="teenused.html">Teenused</a>
+          <a class="navi-nupp" href="meeskond.html">Meeskond</a>
+          <a class="navi-nupp" href="kontakt.html">Kontakt</a>
+        </div>
+        <button class="primaarne-nupp" onclick="kujundaNupp(this)">
+          Muuda nupp
+        </button>
+      </nav>
+      <div class="kangelane-sisu">
+        <p class="kangelane-silt">Kirjuta meile</p>
+        <h1>Hoiame dialoogi avatuna</h1>
+        <p class="kangelane-kirjeldus">
+          Täida vorm, proovi nuppe ja koge, kuidas iga sisend muudab meeleolu.
+        </p>
+      </div>
+    </header>
+    <main class="avatud-jaotis">
+      <section class="kontakt-jaotis">
+        <form class="kontakt-vorm">
+          <label>
+            Nimi
+            <input id="sisend-nimi" type="text" placeholder="Sinu nimi" />
+          </label>
+          <label>
+            E-post
+            <input id="sisend-email" type="email" placeholder="sinunimi@helk.ee" />
+          </label>
+          <label>
+            Saada sõnum
+            <textarea id="sisend-sonum" placeholder="Räägi oma ideest"></textarea>
+          </label>
+          <div class="vormi-nupud">
+            <button type="button" onclick="kuvaTervitus('vormi-tagasiside')">
+              Näita tervitust
+            </button>
+            <button type="button" onclick="lisaLoendiElement('kontakt-loend', 'Uus impulss')">
+              Lisa impulss
+            </button>
+            <button type="button" onclick="eemaldaLoendiElement('kontakt-loend')">
+              Tühjenda üks
+            </button>
+          </div>
+        </form>
+        <aside id="kontakt-paneel" class="kontakt-paneel">
+          <h2>Studio Helk</h2>
+          <p>Põnev teekond algab ühest klõpsust.</p>
+          <ul id="kontakt-loend" class="emotsioonide-loend">
+            <li>Küsi ajakava</li>
+            <li>Jaga inspiratsiooni</li>
+            <li>Planeeri töötuba</li>
+          </ul>
+          <button onclick="animeeriKaart('kontakt-paneel')">Liiguta paneeli</button>
+          <div id="vormi-tagasiside" class="tsitaadi-plokk">
+            Saada sõnum, loobume hallist.
+          </div>
+        </aside>
+      </section>
+    </main>
+    <footer class="jalus">
+      <p>Helk Kontakt · Ühenduses iga päev</p>
+      <div class="jaluse-toimingud">
+        <button onclick="kaivitaTumeReziim()">Tume</button>
+        <button onclick="lopetaTumeReziim()">Hele</button>
+      </div>
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Helk Galerii</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body class="leht leht--galerii">
+    <header class="alam-kangelane">
+      <nav class="navi">
+        <a class="navi-logo" href="index.html">Helk</a>
+        <div class="navi-lingid">
+          <a class="navi-nupp" href="galerii.html">Galerii</a>
+          <a class="navi-nupp" href="teenused.html">Teenused</a>
+          <a class="navi-nupp" href="meeskond.html">Meeskond</a>
+          <a class="navi-nupp" href="kontakt.html">Kontakt</a>
+        </div>
+        <button class="primaarne-nupp" onclick="animeeriKaart('galerii-paanid')">
+          Elusta ruudustik
+        </button>
+      </nav>
+      <div class="kangelane-sisu">
+        <p class="kangelane-silt">Visuaalne päevik</p>
+        <h1>Helendavad hetked</h1>
+        <p class="kangelane-kirjeldus">
+          Kogumik foto- ja videohetki, mis illustreerivad, kuidas tekstuurid,
+          materjalid ja valgus saavad üheks pehmeks kogemuseks.
+        </p>
+      </div>
+    </header>
+    <main class="avatud-jaotis">
+      <section id="galerii-paanid" class="galerii-ruudustik">
+        <article class="paan paan--hele">
+          <h3>Neo klaas</h3>
+          <p>Helkleja servad, mis hajuvad suitsuseks.</p>
+          <button onclick="vahetaTausta('galerii-paanid')">Vaheta tonaalsus</button>
+        </article>
+        <article class="paan paan--gradient">
+          <h3>Sametine mood</h3>
+          <p>Tekstuuri ja sügavuse kihid.</p>
+          <button onclick="kuvaTervitus('galerii-teade')">Kuva teade</button>
+        </article>
+        <article class="paan paan--elekter">
+          <h3>Elektri laine</h3>
+          <p>Futuristlik pärlmutrine säde.</p>
+          <button onclick="pulseeriIkon('galerii-paanid')">Pulseeri</button>
+        </article>
+        <article class="paan paan--hele">
+          <h3>Sumeda taeva serv</h3>
+          <p>Õhuke hämarik valgustrea all.</p>
+          <button onclick="naerataTekst('galerii-tekst')">Naerata</button>
+        </article>
+      </section>
+      <section class="tekstiblokk">
+        <div id="galerii-teade" class="suure-teksti-plokk">
+          Visuaalne rännak ootab sinu klikki.
+        </div>
+        <div id="galerii-tekst" class="tsitaadi-plokk">
+          Vali paan, vajuta nuppu ja jälgi, mis muutub.
+        </div>
+      </section>
+    </main>
+    <footer class="jalus">
+      <p>Helk Galerii · Uuendame pidevalt.</p>
+      <div class="jaluse-toimingud">
+        <button onclick="kaivitaTumeReziim()">Tume</button>
+        <button onclick="lopetaTumeReziim()">Hele</button>
+      </div>
+    </footer>
+  </body>
+</html>
+

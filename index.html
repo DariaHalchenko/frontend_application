@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Värske Elustiili Kogemus</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="app.js"></script>
+  </head>
+  <body class="leht leht--ava">
+    <header class="kangelane">
+      <nav class="navi">
+        <a class="navi-logo" href="index.html">Helk</a>
+        <div class="navi-lingid">
+          <a class="navi-nupp" href="galerii.html">Galerii</a>
+          <a class="navi-nupp" href="teenused.html">Teenused</a>
+          <a class="navi-nupp" href="meeskond.html">Meeskond</a>
+          <a class="navi-nupp" href="kontakt.html">Kontakt</a>
+        </div>
+        <button class="primaarne-nupp" onclick="kaivitaTumeReziim()">
+          Süüta öö
+        </button>
+      </nav>
+      <div class="kangelane-sisu">
+        <p class="kangelane-silt">Uus ajastu</p>
+        <h1>Loome eredaid kogemusi digimaailmas</h1>
+        <p class="kangelane-kirjeldus">
+          Inimkeskne disain, mida toetavad mängulised mikrosuhtlused, maitsekas
+          värviruum ja julgelt asetatud tipograafia. Avasta viis eri alamlehte,
+          mis demonstreerivad kujunduse paindlikkust.
+        </p>
+        <div class="kangelane-toimingud">
+          <button
+            class="sekundaarne-nupp"
+            onclick="kuvaTervitus('dunaamiline-tekst')"
+          >
+            Näita tervitust
+          </button>
+          <button
+            class="sekundaarne-nupp"
+            onclick="vahetaTausta('kangelane-kaart')"
+          >
+            Vaheta tausta
+          </button>
+          <button class="sekundaarne-nupp" onclick="juhuslikTsitaat('tsitaat')">
+            Loo tsitaat
+          </button>
+        </div>
+      </div>
+      <div id="kangelane-kaart" class="kangelane-kaart">
+        <p id="dunaamiline-tekst" class="suure-teksti-plokk">
+          Vajuta nuppudele, et muuta meeleolu.
+        </p>
+        <p id="tsitaat" class="tsitaadi-plokk">
+          Me loome ruume, mis panevad näpud sügelema.
+        </p>
+        <button
+          class="primaarne-nupp"
+          onclick="animeeriKaart('kangelane-kaart')"
+        >
+          Käivita animatsioon
+        </button>
+      </div>
+    </header>
+    <main class="avatud-jaotis">
+      <section class="kaartide-ruudustik">
+        <article class="kaart" id="kaart-innovatsioon">
+          <h2>Innovatsioon</h2>
+          <p>
+            Seame igale kogemusele käegakatsutava eesmärgi ja ehitame samaaegselt
+            mängulise kulgemise.
+          </p>
+          <button onclick="naerataTekst('kaart-innovatsioon')">
+            Lisa sära
+          </button>
+        </article>
+        <article class="kaart" id="kaart-kogukond">
+          <h2>Kogukond</h2>
+          <p>
+            Kaasame päris inimesed prototüüpidesse ja kuulame neid, et vorm
+            oleks ka sisult soe.
+          </p>
+          <button onclick="kujundaNupp(this)">Kujunda see nupp</button>
+        </article>
+        <article class="kaart" id="kaart-elekter">
+          <h2>Elektriline energia</h2>
+          <p>
+            Värvid pulseerivad ja helgid kargavad, sest tähelepanu vajab hoogu.
+          </p>
+          <button onclick="pulseeriIkon('kaart-elekter')">Pulseeri</button>
+        </article>
+      </section>
+      <section class="loendi-jaotis">
+        <div class="loend-pealkiri">
+          <h2>Loome oma lemmikhetki</h2>
+          <p>
+            Halda allolevat loendit ja katseta, kuidas väikesed nupud loovad
+            uue kogemuse.
+          </p>
+        </div>
+        <ul id="emotsiooniloend" class="emotsioonide-loend">
+          <li>Värske hommik</li>
+          <li>Õrn valgus</li>
+          <li>Pehme peegel</li>
+        </ul>
+        <div class="loendi-nupud">
+          <button onclick="lisaLoendiElement('emotsiooniloend', 'Sügav heli')">
+            Lisa tunne
+          </button>
+          <button onclick="eemaldaLoendiElement('emotsiooniloend')">
+            Eemalda viimane
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer class="jalus">
+      <div>
+        <p>© 2025 Helk. Disainitud rõõmuga.</p>
+      </div>
+      <div class="jaluse-toimingud">
+        <button onclick="kaivitaTumeReziim()">Tume</button>
+        <button onclick="lopetaTumeReziim()">Hele</button>
+      </div>
+    </footer>
+  </body>
+</html>
+
