@@ -129,32 +129,43 @@ function pulseeriIkon(sihtId) {
   plokk.classList.toggle("pulseeriv");
 }
 
+// --- Отслеживание событий GA4 ---
 document.addEventListener('DOMContentLoaded', () => {
-  // Кнопка
+
+  // Кнопка отправки контакта
   const contactBtn = document.getElementById('contact-send');
   if (contactBtn) {
     contactBtn.addEventListener('click', () => {
       gtag('event', 'contact_click', {
         page: 'kontakt',
-        method: 'button'
+        method: 'button',
+        debug_mode: true // включаем debug_mode для DebugView
       });
     });
   }
 
-  // Форма
+  // Отправка формы контакта
   const contactForm = document.querySelector('#contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      gtag('event', 'contact_submit', { method: 'web_form' });
+      e.preventDefault(); // предотвращаем перезагрузку страницы
+      gtag('event', 'contact_submit', {
+        method: 'web_form',
+        debug_mode: true
+      });
+      // Здесь можно добавить фактическую отправку формы через fetch/AJAX
     });
   }
 
-  // Галерея
+  // Клик по элементам галереи
   document.querySelectorAll('.gallery-item').forEach((item, i) => {
     item.addEventListener('click', () => {
-      gtag('event', 'gallery_click', { index: i });
+      gtag('event', 'gallery_click', {
+        index: i,
+        debug_mode: true
+      });
     });
   });
+
 });
 
