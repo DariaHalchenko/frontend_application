@@ -132,43 +132,60 @@ function pulseeriIkon(sihtId) {
 document.addEventListener('DOMContentLoaded', () => {
 
   // Кнопка "contact-send"
-  const contactBtn = document.getElementById('contact-send');
+  const contactBtn = leiaElement('contact-send');
   if (contactBtn) {
     contactBtn.addEventListener('click', () => {
-      gtag('event', 'contact_click', { page: 'kontakt', method: 'button', debug_mode: true });
+      gtag('event', 'contact_click', {
+        page: 'kontakt',
+        method: 'button',
+        debug_mode: true
+      });
+      console.log("GA4 contact_click отправлено!");
     });
   }
 
   // Форма контакта
-  const contactForm = document.querySelector('#contact-form');
+  const contactForm = leiaElement('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      gtag('event', 'contact_submit', { method: 'web_form', debug_mode: true });
+      gtag('event', 'contact_submit', {
+        method: 'web_form',
+        debug_mode: true
+      });
+      console.log("GA4 contact_submit отправлено!");
     });
   }
 
   // Галерея
   document.querySelectorAll('.gallery-item').forEach((item, i) => {
     item.addEventListener('click', () => {
-      gtag('event', 'gallery_click', { index: i, debug_mode: true });
+      gtag('event', 'gallery_click', {
+        index: i,
+        debug_mode: true
+      });
+      console.log(`GA4 gallery_click ${i}`);
     });
   });
 
-  // A/B кнопка
-  const variant = Math.random() < 0.5 ? 'A' : 'B';
-  const btn = document.createElement('button');
-  btn.textContent = variant === 'A' ? 'Отправить' : 'Отправить сейчас';
-  document.body.appendChild(btn);
+  // A/B кнопка (динамическая)
+  if (!leiaElement('ab-btn')) {
+    const variant = Math.random() < 0.5 ? 'A' : 'B';
+    const btn = document.createElement('button');
+    btn.id = 'ab-btn';
+    btn.textContent = variant === 'A' ? 'Отправить' : 'Отправить сейчас';
+    document.body.appendChild(btn);
 
-  btn.addEventListener('click', () => {
-    gtag('event', 'contact_click', {
-      variant: variant,
-      page: 'kontakt',
-      method: 'button',
-      debug_mode: true
+    btn.addEventListener('click', () => {
+      gtag('event', 'contact_click', {
+        variant: variant,
+        page: 'kontakt',
+        method: 'button',
+        debug_mode: true
+      });
+      alert(`Событие contact_click отправлено для варианта ${variant}`);
+      console.log(`GA4 A/B кнопка ${variant}`);
     });
-    alert(`Событие contact_click отправлено для варианта ${variant}`);
-  });
+  }
 
 });
