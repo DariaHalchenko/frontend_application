@@ -129,3 +129,44 @@ function pulseeriIkon(sihtId) {
   plokk.classList.toggle("pulseeriv");
 }
 
+// Кнопка отправки контакта
+document.getElementById('contact-send').addEventListener('click', () => {
+  gtag('event', 'contact_click', { page: 'kontakt', method: 'button', debug_mode: true });
+});
+
+//Форма контакта
+document.querySelector('#contact-form').addEventListener('submit', (e) => {
+  e.preventDefault(); // форма не перезагружается
+  gtag('event', 'contact_submit', { method: 'web_form', debug_mode: true });
+});
+
+//Элементы галереи
+document.querySelectorAll('.gallery-item').forEach((item, i) => {
+  item.addEventListener('click', () => {
+    gtag('event', 'gallery_click', { index: i, debug_mode: true });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Случайный вариант A или B
+  const variant = Math.random() < 0.5 ? 'A' : 'B';
+
+  // Создаём кнопку с текстом в зависимости от варианта
+  const btn = document.createElement('button');
+  btn.textContent = variant === 'A' ? 'Отправить' : 'Отправить сейчас';
+  document.body.appendChild(btn);
+
+  // Отслеживаем клик с указанием варианта
+  btn.addEventListener('click', () => {
+    gtag('event', 'contact_click', {
+      variant: variant,
+      page: 'kontakt',
+      method: 'button',
+      debug_mode: true
+    });
+    alert(`Событие contact_click отправлено для варианта ${variant}`);
+  });
+
+});
+
